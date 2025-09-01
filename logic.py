@@ -1,20 +1,3 @@
-def inputEq():
-    validator = 0
-    while validator == 0:
-        eq = input("Enter an equation: ")
-        parts = eq.split()
-
-        #Validation
-        if len(parts) != 5:
-            print("Your equation is not composed of exactly 5 parts. Try again: ")
-        else:
-            p0, p1, p2, p3, p4 = parts
-            if p3 != '=' and p1 != '=':
-                print("Your equation does not contain an equal sign. Try again: ")
-            else:
-                validator = 1
-                return parts
-
 def parseEq(parts):
     p0, p1, p2, p3, p4 = parts
 
@@ -35,7 +18,9 @@ def parseEq(parts):
                 a = -(int(p2))
             else:
                 a = int(p2)
-        else: print("Variable not in correct position.")
+        else:
+            print("Terms not in correct positions.")
+            return None
 
     #p0 = p2 p3 p4
     elif p1 == '=':
@@ -53,9 +38,9 @@ def parseEq(parts):
                 a = -(int(p4))
             else:
                 a = int(p4)
-        else: print("Variable not in correct position.")
-    else:
-        print("Equal sign not in correct position.")
+        else:
+            print("Terms not in correct positions.")
+            return None
     return a, b, op, varLetter
 
 def solveEq(a, b, op):
@@ -66,5 +51,3 @@ def solveEq(a, b, op):
     if op == '/': varValue = a * b
     return varValue
 
-def printSolution(varLetter, varValue):
-    print(f"{varLetter} = {varValue}")
