@@ -36,8 +36,8 @@ def main():
         if parsed == None:
             continue
         else:
-            a, b, op, varLetter = parsed 
-        varValue = solveEq(a, b, op)
+            a, b, op, varLetter, rel = parsed 
+        varValue = solveEq(a, b, op, rel)
         printSolution(varLetter, varValue)
 
 
