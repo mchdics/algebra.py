@@ -9,7 +9,7 @@ def inputEq():
     if eq == '0':
         return 0
     #Validation
-    if len(parts) != 5:
+    elif len(parts) != 5:
         print("Your equation is not composed of exactly 5 parts. Try again: ")
         return None
     else:
@@ -27,7 +27,7 @@ def main():
     #Prompt for equation until exit
     while True:
         eq = inputEq()
-        if eq == '0':
+        if eq == 0:
             break
         if eq == None:
             continue
